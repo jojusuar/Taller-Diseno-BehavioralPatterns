@@ -22,11 +22,24 @@ public class Main {
         DistribucionStrategy aerea = new DistribucionAerea();
         DistribucionStrategy fluvial = new DistribucionFluvial();
 
-        // Cambiar dinámicamente la estrategia
+        // Cambiar dinámicamente la estrategia y ejecutar
         logistica.setStrategy(automotriz);
-        
-        // Ejecutar la distribución con la estrategia actual
-        int resultado = logistica.ejecutarDistribucion(10, 5);
+        ejecutarDistribucion(logistica, 10, 5);
+
+        logistica.setStrategy(ciclista);
+        ejecutarDistribucion(logistica, 10, 5);
+
+        logistica.setStrategy(ferrea);
+        ejecutarDistribucion(logistica, 10, 5);
+
+        logistica.setStrategy(aerea);
+        ejecutarDistribucion(logistica, 10, 5);
+
+        logistica.setStrategy(fluvial);
+        ejecutarDistribucion(logistica, 10, 5);
+    }
+    private static void ejecutarDistribucion(Logistica logistica, int a, int b) {
+        int resultado = logistica.ejecutarDistribucion(a, b);
         System.out.println("Resultado de la distribución: " + resultado);
     }
 }
